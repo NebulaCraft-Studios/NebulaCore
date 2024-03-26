@@ -1,0 +1,5 @@
+name: NebulaShips
+version: '${project.version}'
+main: net.nebulacraft.nebulaships.NebulaShips
+api-version: '1.20'
+authors: [Skullians, AstralSyntax, Nebs, ProGamingDK]
