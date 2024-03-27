@@ -22,7 +22,7 @@ public class DataUtil {
             if (matcher.find()) VERSION = Integer.parseInt(matcher.group(1));
             else throw new IllegalArgumentException("Failed to parse server version from: " + version);
         }
-        private static final boolean ISFLAT = supports(13);
+        private static final boolean ISFLAT = supports(13); // for later
     }
 
     public static int getVersion() {
