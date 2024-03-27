@@ -11,3 +11,12 @@
 
 Commands:
   COOLDOWN: 5000 # You do NOT want this to be too low, definitely not 0. This will avoid database spam and anything else. Most commands have something to do with the database, players should not have to use them repetitively.
+
+Database:
+  TYPE: "sqlite" # SQLite or MySQL
+
+  # Only needed for MySQL!
+  DATABASE_HOST: "" # The MySQL host. Format: "<host>[:<port>]". Port defaults to 3306
+  DATABASE_NAME: "" # The name of the database to use
+  DATABASE_USERNAME: "" # The MySQL user to use
+  DATABASE_PASSWORD: "" # The password for the MySQL user
