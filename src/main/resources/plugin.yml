@@ -2,4 +2,10 @@ name: NebulaShips
 version: '${project.version}'
 main: net.nebulacraft.nebulaships.NebulaShips
 api-version: '1.20'
+
+description: "Spacecraft implementation for NebulaCraft."
 authors: [Skullians, AstralSyntax, Nebs, ProGamingDK]
+
+commands:
+  nebulaships:
+    usage: /<command>
