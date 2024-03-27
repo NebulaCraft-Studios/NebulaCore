@@ -20,4 +20,4 @@ Messages:
 
   Commands:
     # Possible placeholders: %command_syntax% - Syntax of Command (e.g. "/nebulaships help") // %command_name% - Command Name (e.g. "help") // %command_description% - Description of Command.
-    COMMAND_INFO: "{#15FB08}%command_syntax%{/#00B0CA}&r&6 - &3%command_description%" # displayed when user uses /nebulaships help (or just does /nebulaships, which routes to /nebulaships help). It outlines all messages.
+    COMMAND_INFO: "{#4821FF}%command_syntax%{/#0064FF}&r&6 - &3%command_description%" # displayed when user uses /nebulaships help (or just does /nebulaships, which routes to /nebulaships help). It outlines all messages.
