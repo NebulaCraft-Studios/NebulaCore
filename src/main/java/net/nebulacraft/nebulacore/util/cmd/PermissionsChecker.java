@@ -1,6 +1,6 @@
-package net.nebulacraft.nebulaships.util.cmd;
+package net.nebulacraft.nebulacore.util.cmd;
 
-import net.nebulacraft.nebulaships.config.Messages;
+import net.nebulacraft.nebulacore.config.Messages;
 import org.bukkit.entity.Player;
 
 public class PermissionsChecker {

@@ -1,11 +1,11 @@
-name: NebulaShips
+name: NebulaCore
 version: '${project.version}'
-main: net.nebulacraft.nebulaships.NebulaShips
+main: net.nebulacraft.nebulacore.NebulaCore
 api-version: '1.20'
 
 description: "Spacecraft implementation for NebulaCraft."
 authors: [Skullians, AstralSyntax, Nebs, ProGamingDK]
 
 commands:
-  nebulaships:
+  nebulacore:
     usage: /<command>

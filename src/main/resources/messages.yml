@@ -11,7 +11,7 @@
 
 Messages:
   General:
-    SERVER_NAME: '&7[&r{#4821FF}&lNebulaCraft{/#0064FF}&r&7]'
+    SERVER_NAME: '&7[&r{#5C16FF}&lNebulaCraft{/#00DFFF}&r&7]'
 
     PERMISSION_DENY: '%server_name% &c&lHey!&r&7 You are not allowed to execute this command.'
     RELOADING: "%server_name%&r&7 Reloading NebulaCraft, please wait..."
@@ -20,4 +20,4 @@ Messages:
 
   Commands:
     # Possible placeholders: %command_syntax% - Syntax of Command (e.g. "/nebulaships help") // %command_name% - Command Name (e.g. "help") // %command_description% - Description of Command.
-    COMMAND_INFO: "{#4821FF}%command_syntax%{/#0064FF}&r&6 - &3%command_description%" # displayed when user uses /nebulaships help (or just does /nebulaships, which routes to /nebulaships help). It outlines all messages.
+    COMMAND_INFO: "{#5C16FF}%command_syntax%{/#00DFFF}&r&6 - &3%command_description%" # displayed when user uses /nebulaships help (or just does /nebulaships, which routes to /nebulaships help). It outlines all messages.

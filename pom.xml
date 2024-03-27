@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>net.nebulacraft</groupId>
-  <artifactId>NebulaShips</artifactId>
+  <artifactId>NebulaCore</artifactId>
   <version>0.0.1-1.20.4-ALPHA</version>
   <packaging>jar</packaging>
 
-  <name>NebulaShips</name>
+  <name>NebulaCore</name>
 
   <properties>
     <java.version>17</java.version>

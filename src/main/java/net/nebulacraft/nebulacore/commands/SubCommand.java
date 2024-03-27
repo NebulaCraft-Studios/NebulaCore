@@ -1,4 +1,4 @@
-package net.nebulacraft.nebulaships.commands;
+package net.nebulacraft.nebulacore.commands;
 
 import org.bukkit.entity.Player;
 

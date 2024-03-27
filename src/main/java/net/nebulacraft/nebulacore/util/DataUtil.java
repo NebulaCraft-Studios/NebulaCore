@@ -1,4 +1,4 @@
-package net.nebulacraft.nebulaships.util;
+package net.nebulacraft.nebulacore.util;
 
 import org.bukkit.Bukkit;
 

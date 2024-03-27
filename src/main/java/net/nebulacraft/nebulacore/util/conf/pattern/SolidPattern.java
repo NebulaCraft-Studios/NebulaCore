@@ -1,6 +1,6 @@
-package net.nebulacraft.nebulaships.util.conf.pattern;
+package net.nebulacraft.nebulacore.util.conf.pattern;
 
-import net.nebulacraft.nebulaships.util.ColorAPI;
+import net.nebulacraft.nebulacore.util.ColorAPI;
 
 import java.util.regex.Matcher;
 

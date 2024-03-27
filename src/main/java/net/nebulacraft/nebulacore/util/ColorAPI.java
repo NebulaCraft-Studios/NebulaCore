@@ -1,11 +1,11 @@
-package net.nebulacraft.nebulaships.util;
+package net.nebulacraft.nebulacore.util;
 
 import com.google.common.collect.ImmutableMap;
 import net.md_5.bungee.api.ChatColor;
-import net.nebulacraft.nebulaships.util.conf.pattern.GradientPattern;
-import net.nebulacraft.nebulaships.util.conf.pattern.MainPattern;
-import net.nebulacraft.nebulaships.util.conf.pattern.RainbowPattern;
-import net.nebulacraft.nebulaships.util.conf.pattern.SolidPattern;
+import net.nebulacraft.nebulacore.util.conf.pattern.GradientPattern;
+import net.nebulacraft.nebulacore.util.conf.pattern.MainPattern;
+import net.nebulacraft.nebulacore.util.conf.pattern.RainbowPattern;
+import net.nebulacraft.nebulacore.util.conf.pattern.SolidPattern;
 
 import java.awt.*;
 import java.util.Arrays;

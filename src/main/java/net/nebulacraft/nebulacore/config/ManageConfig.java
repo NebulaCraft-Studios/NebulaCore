@@ -1,6 +1,6 @@
-package net.nebulacraft.nebulaships.config;
+package net.nebulacraft.nebulacore.config;
 
-import net.nebulacraft.nebulaships.NebulaShips;
+import net.nebulacraft.nebulacore.NebulaCore;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -16,8 +16,9 @@ public class ManageConfig {
         configurations = new HashMap<>();
     }
 
-    public void loadFiles(NebulaShips plugin) {
+    public void loadFiles(NebulaCore plugin) {
         registerFile(ConfigTypes.MESSAGES, new HandleConfig(plugin, "messages"));
+        registerFile(ConfigTypes.NEBULASHIPS, new HandleConfig(plugin, "ships"));
         registerFile(ConfigTypes.SETTINGS, new HandleConfig(plugin, "config"));
 
         configurations.values().forEach(HandleConfig::saveDefaultConfig);

@@ -1,14 +1,15 @@
-package net.nebulacraft.nebulaships.commands;
+package net.nebulacraft.nebulacore.commands;
 
 import lombok.Getter;
-import net.nebulacraft.nebulaships.NebulaShips;
-import net.nebulacraft.nebulaships.commands.cmds.HelpCommand;
-import net.nebulacraft.nebulaships.commands.cmds.InfoCommand;
-import net.nebulacraft.nebulaships.commands.cmds.ReloadCommand;
-import net.nebulacraft.nebulaships.config.ConfigTypes;
-import net.nebulacraft.nebulaships.config.Messages;
-import net.nebulacraft.nebulaships.util.cmd.PermissionsChecker;
-import net.nebulacraft.nebulaships.util.TextUtility;
+import net.nebulacraft.nebulacore.NebulaCore;
+import net.nebulacraft.nebulacore.commands.cmds.HelpCommand;
+import net.nebulacraft.nebulacore.commands.cmds.InfoCommand;
+import net.nebulacraft.nebulacore.commands.cmds.ReloadCommand;
+import net.nebulacraft.nebulacore.commands.cmds.TestCommand;
+import net.nebulacraft.nebulacore.config.ConfigTypes;
+import net.nebulacraft.nebulacore.config.Messages;
+import net.nebulacraft.nebulacore.util.cmd.PermissionsChecker;
+import net.nebulacraft.nebulacore.util.TextUtility;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -26,6 +27,7 @@ public class CommandManager implements CommandExecutor {
         subCommands.add(new InfoCommand());
         subCommands.add(new HelpCommand());
         subCommands.add(new ReloadCommand());
+        subCommands.add(new TestCommand());
     }
 
     @Override
@@ -38,12 +40,12 @@ public class CommandManager implements CommandExecutor {
                     }
                 }
             } else if (strings.length == 0) {
-                player.sendMessage(TextUtility.color("&7------------- &r" + NebulaShips.configManager.getFile(ConfigTypes.MESSAGES).getConfig().getString("Messages.General.SERVER_NAME") + "&r&7 -------------"));
+                player.sendMessage(TextUtility.color("&7------------- &r" + NebulaCore.getConfiguration(ConfigTypes.MESSAGES).getString("Messages.General.SERVER_NAME") + "&r&7 -------------"));
                 for (int i = 0; i < getSubCommands().size(); i++) {
                     if (!PermissionsChecker.checkPermissions(player, getSubCommands().get(i).permission())) continue;
                     Messages.COMMAND_INFO.send(commandSender, "%command_syntax%", getSubCommands().get(i).getSyntax(), "%command_name%", getSubCommands().get(i).getName(), "%command_description%", getSubCommands().get(i).getDescription());
                 }
-                player.sendMessage(TextUtility.color("&7------------- &r" + NebulaShips.configManager.getFile(ConfigTypes.MESSAGES).getConfig().getString("Messages.General.SERVER_NAME") + "&r&7 -------------"));
+                player.sendMessage(TextUtility.color("&7------------- &r" + NebulaCore.getConfiguration(ConfigTypes.MESSAGES).getString("Messages.General.SERVER_NAME") + "&r&7 -------------"));
             }
         }
 

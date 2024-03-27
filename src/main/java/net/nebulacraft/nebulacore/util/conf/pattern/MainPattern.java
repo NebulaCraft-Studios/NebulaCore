@@ -1,4 +1,4 @@
-package net.nebulacraft.nebulaships.util.conf.pattern;
+package net.nebulacraft.nebulacore.util.conf.pattern;
 
 public interface MainPattern {
 

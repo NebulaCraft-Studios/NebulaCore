@@ -1,4 +1,4 @@
-package net.nebulacraft.nebulaships.commands;
+package net.nebulacraft.nebulacore.commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -27,9 +27,10 @@ public class CommandCompletion implements TabCompleter {
             if (sender.hasPermission("nebulaships.help")) {
                 completions.add("help");
             }
-            if (!sender.hasPermission("nebulaships.info")) {
+            if (sender.hasPermission("nebulaships.info")) {
                 completions.add("info");
             }
+            completions.add("test");
 
             return StringUtil.copyPartialMatches(arg, completions, new ArrayList<>(completions.size()));
         }

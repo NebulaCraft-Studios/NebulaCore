@@ -1,10 +1,10 @@
-package net.nebulacraft.nebulaships.commands.cmds;
+package net.nebulacraft.nebulacore.commands.cmds;
 
 import lombok.extern.log4j.Log4j2;
-import net.nebulacraft.nebulaships.NebulaShips;
-import net.nebulacraft.nebulaships.commands.SubCommand;
-import net.nebulacraft.nebulaships.config.Messages;
-import net.nebulacraft.nebulaships.util.cmd.CooldownManager;
+import net.nebulacraft.nebulacore.NebulaCore;
+import net.nebulacraft.nebulacore.commands.SubCommand;
+import net.nebulacraft.nebulacore.config.Messages;
+import net.nebulacraft.nebulacore.util.cmd.CooldownManager;
 import org.bukkit.entity.Player;
 
 @Log4j2(topic = "NebulaShips")
@@ -32,7 +32,7 @@ public class ReloadCommand extends SubCommand {
         LOGGER.warn("[" + player.getName() + "] is reloading NebulaShips. Smh, what have they done?");
         Messages.RELOADING.send(player);
 
-        NebulaShips.configManager.reloadFiles();
+        NebulaCore.configManager.reloadFiles();
 
         Messages.RELOADED.send(player);
         LOGGER.warn("Successfully reloaded NebulaShips... I hope.");

@@ -1,6 +1,6 @@
-package net.nebulacraft.nebulaships.config;
+package net.nebulacraft.nebulacore.config;
 
-import net.nebulacraft.nebulaships.util.TextUtility;
+import net.nebulacraft.nebulacore.util.TextUtility;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 

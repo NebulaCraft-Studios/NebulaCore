@@ -1,4 +1,4 @@
-package net.nebulacraft.nebulaships.config;
+package net.nebulacraft.nebulacore.config;
 
 import lombok.extern.log4j.Log4j2;
 import org.bukkit.configuration.InvalidConfigurationException;
@@ -22,8 +22,6 @@ public class HandleConfig {
         this.name = name + ".yml";
         this.file = new File(plugin.getDataFolder(), this.name);
         this.configuration = new YamlConfiguration();
-
-        new File(plugin.getDataFolder() + "/schematics").mkdir();
     }
 
     public void saveDefaultConfig() {
