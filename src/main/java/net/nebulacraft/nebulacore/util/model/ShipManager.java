@@ -11,12 +11,13 @@ import org.bukkit.event.entity.EntityDismountEvent;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 public class ShipManager implements PacketListener, Listener {
 
     public static Map<Player, Double> shipSpeedData = new HashMap<>();
     public static Map<Player, Double> shipAngleData = new HashMap<>();
-
+    public static Map<Player, UUID> shipSpecate = new HashMap<>();
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
         Player player = (Player) event.getPlayer();
