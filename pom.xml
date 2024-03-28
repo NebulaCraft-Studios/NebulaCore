@@ -66,6 +66,10 @@
           <id>sonatype</id>
           <url>https://oss.sonatype.org/content/groups/public/</url>
       </repository>
+      <repository>
+          <id>codemc-releases</id>
+          <url>https://repo.codemc.io/repository/maven-releases/</url>
+      </repository>
   </repositories>
 
   <dependencies>
@@ -92,6 +96,12 @@
           <groupId>org.xerial</groupId>
           <artifactId>sqlite-jdbc</artifactId>
           <version>3.45.1.0</version>
+      </dependency>
+      <dependency>
+          <groupId>com.github.retrooper.packetevents</groupId>
+          <artifactId>spigot</artifactId>
+          <version>2.2.1</version>
+          <scope>provided</scope>
       </dependency>
   </dependencies>
 </project>

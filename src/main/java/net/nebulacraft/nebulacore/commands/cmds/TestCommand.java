@@ -22,7 +22,7 @@ public class TestCommand extends SubCommand {
 
     @Override
     public void perform(Player player, String[] args) {
-        SummonCustomModel.summonModel("SHIP_ONE", player.getLocation());
+        SummonCustomModel.summonModel("SHIP_ONE", player.getLocation(), Float.parseFloat(args[1]), Float.parseFloat(args[2]), player);
     }
 
     @Override
