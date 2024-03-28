@@ -22,7 +22,7 @@ public class InfoCommand extends SubCommand {
 
     @Override
     public String getSyntax() {
-        return "/nebulaships info";
+        return "/nebulacore info";
     }
 
     @Override
@@ -41,6 +41,6 @@ public class InfoCommand extends SubCommand {
 
     @Override
     public String permission() {
-        return "nebulaships.info";
+        return "nebulacore.info";
     }
 }

@@ -5,5 +5,6 @@ public enum ConfigTypes {
     NEBULASHIPS,
     MESSAGES,
     SETTINGS,
+    NEBULAPLANETS
 
 }

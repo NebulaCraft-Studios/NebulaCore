@@ -20,6 +20,7 @@ public class ManageConfig {
         registerFile(ConfigTypes.MESSAGES, new HandleConfig(plugin, "messages"));
         registerFile(ConfigTypes.NEBULASHIPS, new HandleConfig(plugin, "ships"));
         registerFile(ConfigTypes.SETTINGS, new HandleConfig(plugin, "config"));
+        registerFile(ConfigTypes.NEBULAPLANETS, new HandleConfig(plugin, "planets"));
 
         configurations.values().forEach(HandleConfig::saveDefaultConfig);
 

@@ -1,0 +1,28 @@
+#   _   _      _           _       _____  _                  _
+# | \ | |    | |         | |     |  __ \| |                | |
+# |  \| | ___| |__  _   _| | __ _| |__) | | __ _ _ __   ___| |_ ___
+# | . ` |/ _ \ '_ \| | | | |/ _` |  ___/| |/ _` | '_ \ / _ \ __/ __|
+# | |\  |  __/ |_) | |_| | | (_| | |    | | (_| | | | |  __/ |_\__ \
+# |_| \_|\___|_.__/ \__,_|_|\__,_|_|    |_|\__,_|_| |_|\___|\__|___/
+#
+#
+
+# =============== NEBULAPLANETS CONFIG =============== #
+
+
+Gravity:
+  AFFECTS_ENTITIES: false
+  AFFECTS_PLAYERS: true
+
+  WORLDS:
+    world:
+      enabled: false
+      gravity: 0.25
+
+    world_nether:
+      enabled: true
+      gravity: 0.25
+
+    world_the_end:
+      enabled: true
+      gravity: 0.5

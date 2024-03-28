@@ -17,7 +17,7 @@ public class TestCommand extends SubCommand {
 
     @Override
     public String getSyntax() {
-        return "/nebulaships test";
+        return "/nebulacore test";
     }
 
     @Override
@@ -27,6 +27,6 @@ public class TestCommand extends SubCommand {
 
     @Override
     public String permission() {
-        return "nebulaships.test";
+        return "nebulacore.test";
     }
 }

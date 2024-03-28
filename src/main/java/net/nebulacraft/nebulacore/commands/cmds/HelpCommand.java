@@ -23,7 +23,7 @@ public class HelpCommand extends SubCommand {
 
     @Override
     public String getSyntax() {
-        return "/nebulaships help";
+        return "/nebulacore help";
     }
 
     @Override
@@ -41,6 +41,6 @@ public class HelpCommand extends SubCommand {
 
     @Override
     public String permission() {
-        return "nebulaships.help";
+        return "nebulacore.help";
     }
 }

@@ -8,6 +8,8 @@ import net.nebulacraft.nebulacore.commands.CommandCompletion;
 import net.nebulacraft.nebulacore.commands.CommandManager;
 import net.nebulacraft.nebulacore.config.ConfigTypes;
 import net.nebulacraft.nebulacore.config.ManageConfig;
+import net.nebulacraft.nebulacore.listeners.GravityHandler;
+import net.nebulacraft.nebulacore.util.gravity.VelocityManager;
 import net.nebulacraft.nebulacore.util.model.ShipManager;
 import net.nebulacraft.nebulacore.util.model.SummonCustomModel;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -23,7 +25,7 @@ public final class NebulaCore extends JavaPlugin {
     @Override
     public void onEnable() {
 
-        LOGGER.info("Registering commands.");
+        LOGGER.info("Registering Commands.");
         getCommand("nebulacore").setExecutor(new CommandManager());
         getCommand("nebulacore").setTabCompleter(new CommandCompletion());
 
@@ -38,6 +40,10 @@ public final class NebulaCore extends JavaPlugin {
 
         LOGGER.info("Registering Events.");
         //getServer().getPluginManager().registerEvents(new ShipManager(), this);
+        getServer().getPluginManager().registerEvents(new GravityHandler(), this);
+
+        LOGGER.info("Registering NebulaPlanets Gravity Task.");
+        getServer().getScheduler().scheduleSyncRepeatingTask(this, new VelocityManager(), 1, 1);
 
         LOGGER.info(name);
         LOGGER.info("NebulaCore has loaded. Enjoy!");
