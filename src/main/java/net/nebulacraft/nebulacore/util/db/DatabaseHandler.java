@@ -29,7 +29,7 @@ public class DatabaseHandler {
     public void initialiseDatabase(String type) throws SQLException {
         LOGGER.info("Setting up SQLite...");
         createDataSource(new File(NebulaCore.getInstance().getDataFolder(), "data.sqlite3"), type);
-        setupTables();
+        setupTables(type);
     }
 
     private void createDataSource(
