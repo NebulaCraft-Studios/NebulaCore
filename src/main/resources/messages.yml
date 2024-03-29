@@ -21,3 +21,6 @@ Messages:
   Commands:
     # Possible placeholders: %command_syntax% - Syntax of Command (e.g. "/nebulaships help") // %command_name% - Command Name (e.g. "help") // %command_description% - Description of Command.
     COMMAND_INFO: "{#5C16FF}%command_syntax%{/#00DFFF}&r&6 - &3%command_description%" # displayed when user uses /nebulaships help (or just does /nebulaships, which routes to /nebulaships help). It outlines all messages.
+
+  SHIPS:
+    EXIT_WARNING: "&c&lHey! &r&7 Are you sure you want to exit the ship! Dismount again to exit."# When hitting sneak, the user will be prompted to sneak again to exit the ship.

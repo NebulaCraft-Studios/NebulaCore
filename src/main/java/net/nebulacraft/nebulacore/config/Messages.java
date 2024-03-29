@@ -15,7 +15,9 @@ public enum Messages {
     ERROR("General.ERROR"),
     COOLDOWN("General.COOLDOWN"),
 
-    COMMAND_INFO("Commands.COMMAND_INFO");
+    COMMAND_INFO("Commands.COMMAND_INFO"),
+
+    SHIP_EXIT_WARNING("Ships.EXIT_WARNING");
 
     private static FileConfiguration config;
     private final String path;

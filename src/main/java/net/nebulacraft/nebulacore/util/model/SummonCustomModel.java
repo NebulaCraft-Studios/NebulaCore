@@ -42,6 +42,8 @@ public class SummonCustomModel {
 
         armorStand.setHelmet(customModel);
 
+        ShipManager.presentStands.put(owner, armorStand);
+
         /*BukkitTask task = Bukkit.getScheduler().runTaskTimer(NebulaCore.getInstance(), () -> {
             Location currentLocation = armorStand.getLocation();
             Vector direction = currentLocation.getDirection().normalize().multiply(speed);
@@ -75,6 +77,7 @@ public class SummonCustomModel {
             //armorStand.teleport(newLocation);
             armorStand.teleport(newLocation);
         }, 0L, 1L);
+        ShipManager.presentShipTasks.put(owner, task);
 
     }
 
