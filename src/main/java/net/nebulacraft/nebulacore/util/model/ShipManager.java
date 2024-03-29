@@ -90,6 +90,7 @@ if (isMounted){spectateEntity(player, entityid);}
                 presentShipTasks.get(player).cancel();
                 presentStands.get(player).remove();
                 attemptedDismount.remove(player);
+                spectateEntity(player, player.getEntityId());
             }
         }
     }
