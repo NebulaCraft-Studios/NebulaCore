@@ -1,9 +1,11 @@
 package net.nebulacraft.nebulacore.util.model;
 
+import com.github.retrooper.packetevents.PacketEvents;
 import com.github.retrooper.packetevents.event.PacketListener;
 import com.github.retrooper.packetevents.event.PacketReceiveEvent;
 import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientSteerVehicle;
+import com.github.retrooper.packetevents.wrapper.play.server.WrapperPlayServerCamera;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,7 +19,7 @@ public class ShipManager implements PacketListener, Listener {
 
     public static Map<Player, Double> shipSpeedData = new HashMap<>();
     public static Map<Player, Double> shipAngleData = new HashMap<>();
-    public static Map<Player, UUID> shipSpecate = new HashMap<>();
+    public static Map<Player, Integer> shipSpectate = new HashMap<>();
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
         Player player = (Player) event.getPlayer();
@@ -44,10 +46,16 @@ public class ShipManager implements PacketListener, Listener {
             } else if (vehicleSideways < 0) { // We are trying to move right, increase angle
                 ShipManager.shipAngleData.put(player, currentAngle + 0.3);
             }
-
+spectateEntity(player);
         }
     }
+    public static void spectateEntity(Player player) {
+        int entityid = ShipManager.shipSpectate.get(player);
 
+
+        WrapperPlayServerCamera cameraPacket = new WrapperPlayServerCamera(entityid);
+        PacketEvents.getAPI().getPlayerManager().sendPacket(player, cameraPacket);
+    }
     @EventHandler
     public void onEntityDismount(EntityDismountEvent event) {
         if (event.getEntity() instanceof Player player) {

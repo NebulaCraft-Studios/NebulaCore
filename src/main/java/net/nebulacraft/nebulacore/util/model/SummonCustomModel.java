@@ -33,7 +33,8 @@ public class SummonCustomModel {
         armorStand.setInvisible(true);
         armorStand.setInvulnerable(true);
         armorStand.setGravity(false);
-        ShipManager.shipSpecate.put(owner, armorStand.getUniqueId());
+
+        ShipManager.shipSpectate.put(owner, armorStand.getEntityId());
         ItemStack customModel = new ItemStack(Material.getMaterial(item));
         ItemMeta modelMeta = customModel.getItemMeta();
         modelMeta.setCustomModelData(id);
