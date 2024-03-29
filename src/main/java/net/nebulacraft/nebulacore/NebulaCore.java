@@ -28,8 +28,6 @@ public final class NebulaCore extends JavaPlugin {
              | . ` |/ _ \\ '_ \\| | | | |/ _` | |    / _ \\| '__/ _ \\
              | |\\  |  __/ |_) | |_| | | (_| | |___| (_) | | |  __/
              |_| \\_|\\___|_.__/ \\__,_|_|\\__,_|\\_____\\___/|_|  \\___|
-                                                                 \s
-                                                                  \
             """;
 
     @Override
@@ -49,7 +47,7 @@ public final class NebulaCore extends JavaPlugin {
         PacketEvents.getAPI().init();
 
         LOGGER.info("Registering Events.");
-        //getServer().getPluginManager().registerEvents(new ShipManager(), this);
+        getServer().getPluginManager().registerEvents(new ShipManager(), this);
         getServer().getPluginManager().registerEvents(new GravityHandler(), this);
 
         LOGGER.info("Registering NebulaPlanets Gravity Task.");
