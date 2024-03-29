@@ -24,7 +24,7 @@ public class SummonCustomModel {
 
         ShipManager.shipSpeedData.put(owner, speed);
         ShipManager.shipAngleData.put(owner, angle);
-
+        ShipManager.shipHeightData.put(owner, location.getY());
 
         int id = NebulaCore.getConfiguration(ConfigTypes.NEBULASHIPS).getInt("Models." + modelName + ".custom_model_id");
         String item = NebulaCore.getConfiguration(ConfigTypes.NEBULASHIPS).getString("Models." + modelName + ".item");
@@ -51,11 +51,13 @@ public class SummonCustomModel {
             Location newLocation = currentLocation.add(direction);
             armorStand.teleport(newLocation);
         }, 0L, 1L);*/
-
         BukkitTask task = Bukkit.getScheduler().runTaskTimer(NebulaCore.getInstance(), () -> {
             double shipSpeed = ShipManager.shipSpeedData.get(owner);
             double turnangle = ShipManager.shipAngleData.get(owner);
+            ShipManager.playerShip.put(owner, "Aurora Skystreamer");
 
+            // TODO In the end, on player join I'll probably just register in SQLite what the default initial ship is
+            // yes
 
             Location currentLocation = armorStand.getLocation();
             Vector direction = currentLocation.getDirection().normalize().multiply(shipSpeed);
@@ -65,18 +67,22 @@ public class SummonCustomModel {
             double sinAngle = Math.sin(angleRad);
             double newX = direction.getX() * cosAngle - direction.getZ() * sinAngle;
             double newZ = direction.getX() * sinAngle + direction.getZ() * cosAngle;
-            float currentYaw = currentLocation.getYaw();
-            float newYaw = currentYaw + (float) turnangle;
 
+
+            float currentYaw = currentLocation.getYaw();
+            float newYaw = (float) turnangle;
             direction.setX(newX);
             direction.setZ(newZ);
             direction.setY(0);
 
+
             Location newLocation = currentLocation.add(direction);
             newLocation.setYaw(newYaw);
+            newLocation.setY(ShipManager.shipHeightData.get(owner));
             //armorStand.teleport(newLocation);
             armorStand.teleport(newLocation);
         }, 0L, 1L);
+        ShipManager.shipBrakeTask(owner);
         ShipManager.presentShipTasks.put(owner, task);
 
     }

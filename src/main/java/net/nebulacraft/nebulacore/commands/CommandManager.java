@@ -2,10 +2,7 @@ package net.nebulacraft.nebulacore.commands;
 
 import lombok.Getter;
 import net.nebulacraft.nebulacore.NebulaCore;
-import net.nebulacraft.nebulacore.commands.cmds.HelpCommand;
-import net.nebulacraft.nebulacore.commands.cmds.InfoCommand;
-import net.nebulacraft.nebulacore.commands.cmds.ReloadCommand;
-import net.nebulacraft.nebulacore.commands.cmds.TestCommand;
+import net.nebulacraft.nebulacore.commands.cmds.*;
 import net.nebulacraft.nebulacore.config.ConfigTypes;
 import net.nebulacraft.nebulacore.config.Messages;
 import net.nebulacraft.nebulacore.util.cmd.PermissionsChecker;
@@ -28,6 +25,7 @@ public class CommandManager implements CommandExecutor {
         subCommands.add(new HelpCommand());
         subCommands.add(new ReloadCommand());
         subCommands.add(new TestCommand());
+        subCommands.add(new TempExit());
     }
 
     @Override

@@ -27,11 +27,23 @@ public final class NebulaCore extends JavaPlugin {
              |  \\| | ___| |__  _   _| | __ _| |     ___  _ __ ___\s
              | . ` |/ _ \\ '_ \\| | | | |/ _` | |    / _ \\| '__/ _ \\
              | |\\  |  __/ |_) | |_| | | (_| | |___| (_) | | |  __/
-             |_| \\_|\\___|_.__/ \\__,_|_|\\__,_|\\_____\\___/|_|  \\___|
+             |_| \\_|\\___|_.__/ \\__,_|_|\\__,_|\\_____\\___/|_|  \\___|\n
+             
             """;
 
     @Override
     public void onEnable() {
+        LOGGER.info("Registering Ship Braking Power.");
+        ShipManager.shipBrakingPower.put("Starlight Voyager", 0.1);
+        ShipManager.shipBrakingPower.put("Nebula Serenity", 0.15);
+        ShipManager.shipBrakingPower.put("Celestial Phoenix", 0.1);
+        ShipManager.shipBrakingPower.put("Galactic Explorer", 0.2);
+        ShipManager.shipBrakingPower.put("Interstellar Odyssey", 0.2);
+        ShipManager.shipBrakingPower.put("Cosmos Nova", 0.15);
+        ShipManager.shipBrakingPower.put("Infinity Horizon", 0.25);
+        ShipManager.shipBrakingPower.put("Aurora Skystreamer", 0.5); // ig
+        ShipManager.shipBrakingPower.put("Stellar Eclipse", 0.1);
+        ShipManager.shipBrakingPower.put("Quantum Stratosphere", 0.15);
 
         LOGGER.info("Registering Commands.");
         getCommand("nebulacore").setExecutor(new CommandManager());
