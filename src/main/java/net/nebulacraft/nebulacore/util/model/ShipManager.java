@@ -17,16 +17,19 @@ import java.util.UUID;
 
 public class ShipManager implements PacketListener, Listener {
 
+
     public static Map<Player, Double> shipSpeedData = new HashMap<>();
     public static Map<Player, Double> shipAngleData = new HashMap<>();
     public static Map<Player, Integer> shipSpectate = new HashMap<>();
+    boolean isMounted = false;
     @Override
     public void onPacketReceive(PacketReceiveEvent event) {
         Player player = (Player) event.getPlayer();
 
         if (event.getPacketType() == PacketType.Play.Client.STEER_VEHICLE) {
+            isMounted = true;
             if (!ShipManager.shipAngleData.containsKey(player)) return;
-
+            int entityid = ShipManager.shipSpectate.get(player);
             WrapperPlayClientSteerVehicle packet = new WrapperPlayClientSteerVehicle(event);
 
             double currentSpeed = ShipManager.shipSpeedData.get(player); // get the current speed
@@ -46,11 +49,10 @@ public class ShipManager implements PacketListener, Listener {
             } else if (vehicleSideways < 0) { // We are trying to move right, increase angle
                 ShipManager.shipAngleData.put(player, currentAngle + 0.3);
             }
-spectateEntity(player);
+if (isMounted){spectateEntity(player, entityid);}
         }
     }
-    public static void spectateEntity(Player player) {
-        int entityid = ShipManager.shipSpectate.get(player);
+    public static void spectateEntity(Player player, int entityid) {
 
 
         WrapperPlayServerCamera cameraPacket = new WrapperPlayServerCamera(entityid);
@@ -59,9 +61,9 @@ spectateEntity(player);
     @EventHandler
     public void onEntityDismount(EntityDismountEvent event) {
         if (event.getEntity() instanceof Player player) {
+            isMounted = false;
             if (!ShipManager.shipAngleData.containsKey(player)) return;
 
-            event.setCancelled(true);
         }
     }
 }
