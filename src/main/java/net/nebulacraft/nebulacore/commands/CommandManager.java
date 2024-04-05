@@ -26,6 +26,7 @@ public class CommandManager implements CommandExecutor {
         subCommands.add(new ReloadCommand());
         subCommands.add(new TestCommand());
         subCommands.add(new TempExit());
+        subCommands.add(new SummonEntity());
     }
 
     @Override

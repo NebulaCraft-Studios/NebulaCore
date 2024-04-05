@@ -32,7 +32,7 @@ public class CommandCompletion implements TabCompleter {
             }
             completions.add("test");
             completions.add("tempexit");
-
+completions.add("summonentity");
             return StringUtil.copyPartialMatches(arg, completions, new ArrayList<>(completions.size()));
         }
 

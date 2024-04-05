@@ -1,17 +1,21 @@
 package net.nebulacraft.nebulacore;
 
 import com.github.retrooper.packetevents.PacketEvents;
+import com.github.retrooper.packetevents.PacketEventsAPI;
 import com.github.retrooper.packetevents.event.PacketListenerPriority;
 import io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder;
 import lombok.extern.log4j.Log4j2;
+import me.tofaa.entitylib.APIConfig;
+import me.tofaa.entitylib.EntityLib;
 import net.nebulacraft.nebulacore.commands.CommandCompletion;
 import net.nebulacraft.nebulacore.commands.CommandManager;
 import net.nebulacraft.nebulacore.config.ConfigTypes;
 import net.nebulacraft.nebulacore.config.ManageConfig;
 import net.nebulacraft.nebulacore.listeners.GravityHandler;
+import net.nebulacraft.nebulacore.util.SpigotEntity.SpigotEntityLibPlatform;
+import net.nebulacraft.nebulacore.util.entities.DisplayEntities;
 import net.nebulacraft.nebulacore.util.gravity.VelocityManager;
 import net.nebulacraft.nebulacore.util.model.ShipManager;
-import net.nebulacraft.nebulacore.util.model.SummonCustomModel;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -44,7 +48,6 @@ public final class NebulaCore extends JavaPlugin {
         ShipManager.shipBrakingPower.put("Aurora Skystreamer", 0.5); // ig
         ShipManager.shipBrakingPower.put("Stellar Eclipse", 0.1);
         ShipManager.shipBrakingPower.put("Quantum Stratosphere", 0.15);
-
         LOGGER.info("Registering Commands.");
         getCommand("nebulacore").setExecutor(new CommandManager());
         getCommand("nebulacore").setTabCompleter(new CommandCompletion());
@@ -56,8 +59,18 @@ public final class NebulaCore extends JavaPlugin {
         LOGGER.info("Registering PacketEvents.");
         PacketEvents.getAPI().getEventManager().registerListener(new ShipManager(),
                 PacketListenerPriority.LOW);
+        PacketEvents.getAPI().getEventManager().registerListener(new DisplayEntities(),
+                PacketListenerPriority.LOW);
         PacketEvents.getAPI().init();
+        PacketEventsAPI api;// create PacketEventsAPI instance
+        SpigotEntityLibPlatform platform = new SpigotEntityLibPlatform(this);
+        APIConfig settings = new APIConfig(PacketEvents.getAPI())
+                .debugMode()
+                .tickTickables()
+                .trackPlatformEntities()
+                .usePlatformLogger();
 
+        EntityLib.init(platform, settings);
         LOGGER.info("Registering Events.");
         getServer().getPluginManager().registerEvents(new ShipManager(), this);
         getServer().getPluginManager().registerEvents(new GravityHandler(), this);
