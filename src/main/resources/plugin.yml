@@ -6,7 +6,13 @@ api-version: '1.20'
 description: "Spacecraft implementation for NebulaCraft."
 authors: [Skullians, AstralSyntax, Nebs, ProGamingDK]
 
-depend: [ packetevents ]
+softdepend:
+  - ProtocolLib
+  - ProtocolSupport
+  - ViaVersion
+  - ViaBackwards
+  - ViaRewind
+  - Geyser-Spigot
 
 commands:
   nebulacore:

@@ -46,13 +46,12 @@ public class DisplayEntities implements PacketListener {
     public static void spawnDisplayEntity() {
 
 
-        var entity = EntityLib.getApi().createEntity(EntityTypes.BLOCK_DISPLAY);
+        var entity = EntityLib.getApi().createEntity(EntityTypes.ZOMBIE);
         Bukkit.getOnlinePlayers().forEach( player -> {
             entity.addViewer(player.getUniqueId());
         });
         entity.spawn(new Location(new Vector3d(x.getAndIncrement(), 100, z.getAndIncrement()), 0f, 0f));
         var meta = (BlockDisplayMeta) entity.getEntityMeta();
-        meta.setBlockId(Material.BARREL.getId());
         meta.setHasGlowingEffect(true);
     }
 

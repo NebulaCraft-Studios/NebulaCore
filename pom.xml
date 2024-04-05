@@ -42,6 +42,46 @@
       </plugin>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>3.5.1</version>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>shade</goal>
+                    </goals>
+                    <configuration>
+                        <minimizeJar>true</minimizeJar>
+                        <createDependencyReducedPom>false</createDependencyReducedPom>
+                        <relocations>
+                            <relocation>
+                                <pattern>com.github.retrooper</pattern>
+                                <shadedPattern>com.github.retrooper.nebulacore
+                                </shadedPattern> <!--relocate packetevents package. choose something unique!-->
+                            </relocation>
+                            <relocation>
+                                <pattern>io.github.retrooper</pattern>
+                                <shadedPattern>io.github.retrooper.nebulacore
+                                </shadedPattern> <!--relocate packetevents package. choose something unique!-->
+                            </relocation>
+                            <relocation>
+                                <pattern>net.kyori</pattern>
+                                <shadedPattern>com.github.retrooper.nebulacore.packetevents.libs.net.kyori
+                                </shadedPattern> <!--relocate packetevents package. choose something unique!-->
+                            </relocation>
+
+                            <relocation>
+                                <pattern>com.google.gson</pattern>
+                                <shadedPattern>com.github.retrooper.nebulacore.packetevents.libs.com.google.gson
+                                </shadedPattern> <!--relocate packetevents package. choose something unique!-->
+                            </relocation>
+                        </relocations>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-jar-plugin</artifactId>
             <version>2.3.1</version>
             <configuration>
@@ -111,7 +151,7 @@
           <groupId>com.github.retrooper.packetevents</groupId>
           <artifactId>spigot</artifactId>
           <version>2.2.1</version>
-          <scope>provided</scope>
+          <scope>compile</scope>
       </dependency>
   </dependencies>
 </project>
