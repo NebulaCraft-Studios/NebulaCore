@@ -46,7 +46,7 @@ public class DisplayEntities implements PacketListener {
     public static void spawnDisplayEntity() {
 
 
-        var entity = EntityLib.getApi().createEntity(EntityTypes.ZOMBIE);
+        var entity = EntityLib.getApi().createEntity(EntityTypes.BLOCK_DISPLAY);
         Bukkit.getOnlinePlayers().forEach( player -> {
             entity.addViewer(player.getUniqueId());
         });
