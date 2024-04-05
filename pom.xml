@@ -83,7 +83,7 @@
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-jar-plugin</artifactId>
-            <version>2.3.1</version>
+            <version>3.3.0</version>
             <configuration>
                 <outputDirectory>./Server/plugins</outputDirectory> <!-- Why you looking here, huh? But you will want to remove this if you are going to develop on your own. -->
             </configuration>
