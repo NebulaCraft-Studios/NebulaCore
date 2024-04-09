@@ -43,16 +43,23 @@ public class DisplayEntities implements PacketListener {
 
     }
 
-    public static void spawnDisplayEntity() {
-
-
+    public static void spawnDisplayEntity(Integer blockid) {
         var entity = EntityLib.getApi().createEntity(EntityTypes.BLOCK_DISPLAY);
+        int xPos = x.getAndIncrement();
+        int zPos = z.getAndIncrement();
+        Location location = new Location((double) xPos, 100, (double) zPos, 10f, 10f);
+        entity.spawn(location);
         Bukkit.getOnlinePlayers().forEach( player -> {
             entity.addViewer(player.getUniqueId());
         });
-        entity.spawn(new Location(new Vector3d(x.getAndIncrement(), 100, z.getAndIncrement()), 0f, 0f));
+
+        // Ensure x and z are properly initialized and incremented
+
+        // Ensure Vector3d object is not null
+
+
         var meta = (BlockDisplayMeta) entity.getEntityMeta();
-        meta.setHasGlowingEffect(true);
+        meta.setBlockId(blockid);
     }
 
 
