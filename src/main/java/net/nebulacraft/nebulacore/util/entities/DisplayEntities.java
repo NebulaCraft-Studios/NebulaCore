@@ -48,18 +48,14 @@ public class DisplayEntities implements PacketListener {
         int xPos = x.getAndIncrement();
         int zPos = z.getAndIncrement();
         Location location = new Location((double) xPos, 100, (double) zPos, 10f, 10f);
+        var meta = (BlockDisplayMeta) entity.getEntityMeta();
+        meta.setBlockId(blockid);
         entity.spawn(location);
         Bukkit.getOnlinePlayers().forEach( player -> {
             entity.addViewer(player.getUniqueId());
         });
-
         // Ensure x and z are properly initialized and incremented
-
         // Ensure Vector3d object is not null
-
-
-        var meta = (BlockDisplayMeta) entity.getEntityMeta();
-        meta.setBlockId(blockid);
     }
 
 
