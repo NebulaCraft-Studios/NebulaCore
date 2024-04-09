@@ -10,6 +10,7 @@ import com.github.retrooper.packetevents.util.Vector3d;
 import com.github.retrooper.packetevents.util.Vector3f;
 import com.github.retrooper.packetevents.wrapper.play.server.WrapperPlayServerSpawnEntity;
 
+import io.github.retrooper.packetevents.util.SpigotConversionUtil;
 import me.tofaa.entitylib.APIConfig;
 import me.tofaa.entitylib.EntityLib;
 import me.tofaa.entitylib.meta.display.BlockDisplayMeta;
@@ -28,6 +29,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.bukkit.Bukkit.createBlockData;
+import static org.bukkit.Bukkit.getLogger;
 
 public class DisplayEntities implements PacketListener {
 
@@ -43,20 +45,22 @@ public class DisplayEntities implements PacketListener {
 
     }
 
-    public static void spawnDisplayEntity(Integer blockid) {
-        var entity = EntityLib.getApi().createEntity(EntityTypes.BLOCK_DISPLAY);
-        int xPos = x.getAndIncrement();
-        int zPos = z.getAndIncrement();
-        Location location = new Location((double) xPos, 100, (double) zPos, 10f, 10f);
-        var meta = (BlockDisplayMeta) entity.getEntityMeta();
-        meta.setBlockId(blockid);
-        entity.spawn(location);
-        Bukkit.getOnlinePlayers().forEach( player -> {
-            entity.addViewer(player.getUniqueId());
-        });
-        // Ensure x and z are properly initialized and incremented
-        // Ensure Vector3d object is not null
-    }
+        public static void spawnDisplayEntity(Integer blockid) {
+            var entity = EntityLib.getApi().createEntity(EntityTypes.BLOCK_DISPLAY);
+            int xPos = x.getAndIncrement();
+            int zPos = z.getAndIncrement();
+            Location location = new Location((double) xPos, 100, (double) zPos, 10f, 10f);
+            var meta = (BlockDisplayMeta) entity.getEntityMeta();
+            meta.setBlockId(SpigotConversionUtil.fromBukkitBlockData(Material.BARREL.createBlockData()).getGlobalId());
+            entity.spawn(location);
+
+            Bukkit.getOnlinePlayers().forEach( player -> {
+                entity.addViewer(player.getUniqueId());
+            });
+            getLogger().info(((BlockDisplayMeta) entity.getEntityMeta()).getBlockId() + " " + entity.getLocation() + " " + entity.getUuid() + " " + entity.getViewers());
+            // Ensure x and z are properly initialized and incremented
+            // Ensure Vector3d object is not null
+        }
 
 
 }
