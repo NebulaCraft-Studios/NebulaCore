@@ -42,7 +42,7 @@ public class SummonEntity extends SubCommand {
         //Location test = new Location(player.getWorld(), Double.parseDouble(args[1]),Double.parseDouble(args[2]),Double.parseDouble(args[3]));
         //BlockDisplay display = (BlockDisplay) Objects.requireNonNull(Bukkit.getWorld(player.getWorld().getName())).spawnEntity(test, EntityType.BLOCK_DISPLAY);
         //display.setBlock(createBlockData(args[4]));
-DisplayEntities.spawnDisplayEntity();
+DisplayEntities.spawnDisplayEntity(Integer.valueOf(args[1]));
     }
 
     @Override
