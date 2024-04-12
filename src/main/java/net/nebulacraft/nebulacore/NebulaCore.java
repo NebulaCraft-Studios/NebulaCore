@@ -65,7 +65,6 @@ public final class NebulaCore extends JavaPlugin {
         PacketEventsAPI api;// create PacketEventsAPI instance
         SpigotEntityLibPlatform platform = new SpigotEntityLibPlatform(this);
         APIConfig settings = new APIConfig(PacketEvents.getAPI())
-                .debugMode()
                 .tickTickables()
                 .trackPlatformEntities()
                 .usePlatformLogger();
